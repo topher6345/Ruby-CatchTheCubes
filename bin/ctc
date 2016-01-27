@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+require_relative "../lib/catch_the_cubes"
+
+CatchTheCubes.new.show
