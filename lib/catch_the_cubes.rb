@@ -25,9 +25,11 @@ class CatchTheCubes < Gosu::Window
     @scenes[:play]  = PlayScreen.new
 
     @current_screen = @scenes[:title]
+    @song = Gosu::Song.new("media/celestine.mp3")
   end
 
   def update
+    @song.play(true) unless @song.playing?
     case @current_screen
 
     when TitleScreen
