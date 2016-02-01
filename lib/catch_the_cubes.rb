@@ -49,6 +49,10 @@ class CatchTheCubes < Gosu::Window
     true
   end
 
+  def button_up(id)
+    @current_screen.click_reset if id == Gosu::MsLeft
+  end
+
   def start_game
     @current_screen = @scenes[:play]
     @scenes[:play].add_cubes

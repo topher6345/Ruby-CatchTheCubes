@@ -13,6 +13,7 @@ class CatchTheCubes
       @cubes = Cubes.new
       @score = Score.new
       @sounds = Sounds.new(width: Bounds::WIDTH)
+      @click_up = true
     end
 
     def update
@@ -35,9 +36,10 @@ class CatchTheCubes
 
     def click(mouse_x, mouse_y)
       @cubes.delete_if do |cube|
-        if cube.collision?(mouse_x, mouse_y)
+        if cube.collision?(mouse_x, mouse_y) && @click_up
           @score.score += 1
           @sounds.catch(x: cube.x)
+          @click_up = false
           true
         end
       end
@@ -51,6 +53,10 @@ class CatchTheCubes
         # Keep tally of total cubes
         @score.count += 1
       end
+    end
+
+    def click_reset
+      @click_up = true
     end
 
     private
