@@ -1,7 +1,6 @@
 require "gosu"
-require "./colors"
 
-# == Catch The Cubes
+# = Catch The Cubes
 #
 class CatchTheCubes < Gosu::Window
   # Global Bounds for the screen
@@ -11,6 +10,7 @@ class CatchTheCubes < Gosu::Window
   end
   require_relative "catch_the_cubes/title_screen"
   require_relative "catch_the_cubes/play_screen"
+  require_relative "catch_the_cubes/colors"
 
   def initialize
     super(Bounds::WIDTH, Bounds::HEIGHT)

@@ -5,18 +5,17 @@ class CatchTheCubes
   #
   class TitleScreen
     require_relative "title_screen/update_interval"
-    require_relative "title_screen/colors"
 
     def initialize
       @font = Gosu::Font.new(20)
       @update_interval = UpdateInterval.new(frames: 10)
-      @color1 = COLORS.first
-      @color2 = COLORS.last
       @cycle = COLORS.cycle
+      @color1 = @cycle.next
+      @color2 = @cycle.next
     end
 
     def update
-      @update_interval.each do
+      @update_interval.each_interval do
         @color1 = @cycle.next
         @color2 = @cycle.next
       end

@@ -8,15 +8,18 @@ class CatchTheCubes
     require_relative "play_screen/score"
     require_relative "play_screen/cubes"
     require_relative "play_screen/sounds"
+    require_relative "play_screen/background"
 
     def initialize
       @cubes = Cubes.new
       @score = Score.new
+      @background = Background.new(size: 0.5)
       @sounds = Sounds.new(width: Bounds::WIDTH)
       @click_up = true
     end
 
     def update
+      @background.update
       @cubes.each(&:update)
 
       @cubes.each_bottom do |cube|
@@ -30,6 +33,7 @@ class CatchTheCubes
     end
 
     def draw
+      @background.draw
       @score.draw
       @cubes.each(&:draw)
     end

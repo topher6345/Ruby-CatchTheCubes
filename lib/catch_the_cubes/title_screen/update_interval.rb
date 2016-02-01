@@ -11,7 +11,7 @@ class CatchTheCubes
         @count = 0
       end
 
-      def each
+      def each_interval
         @count = (@count + 1) % @frames
         yield if @count == 0
       end

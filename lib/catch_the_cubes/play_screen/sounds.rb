@@ -14,10 +14,12 @@ class CatchTheCubes
 
       def catch(x:)
         @catch.play_pan xpos_to_pan(x: x)
+        @catch.play
       end
 
       def miss(x:)
         @miss.play_pan xpos_to_pan(x: x)
+        @miss.play
       end
 
       private

@@ -9,8 +9,8 @@ class CatchTheCubes
       extend Forwardable
       def_delegators :@cubes, *([].methods - Object.new.methods)
 
-      def initialize
-        @cubes = []
+      def initialize(array = [])
+        @cubes = array
       end
 
       def each_bottom

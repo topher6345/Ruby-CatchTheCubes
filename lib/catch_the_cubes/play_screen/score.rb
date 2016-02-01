@@ -14,10 +14,10 @@ class CatchTheCubes
       end
 
       def draw
-        @font.draw("Score: #{@score}", 0, 0, 1, 2.0, 2.0, Colors::WHITE)
-        @font.draw("Cubes: #{@count}", 0, 40, 1, 2.0, 2.0, Colors::WHITE)
-        @font.draw("Level: #{@level}", 0, 80, 1, 2.0, 2.0, Colors::WHITE)
-        @font.draw(moving_average, 0, 120, 1, 2.0, 2.0, Colors::WHITE)
+        @font.draw("Score: #{@score}", 0, 0, 1, 1.7, 1.7, COLORS.first)
+        @font.draw("Cubes: #{@count}", 0, 40, 1, 1.7, 1.7, COLORS.first)
+        @font.draw("Level: #{@level}", 0, 80, 1, 1.7, 1.7, COLORS.first)
+        @font.draw(moving_average, 0, 120, 1, 1.7, 1.7, COLORS.first)
       end
 
       private
