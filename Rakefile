@@ -18,5 +18,9 @@ task :bundle do
   sh "bundle install"
 end
 
-task default: %w(lint doc play)
+task :critique do
+  sh "rubycritic --mode-ci --format console --minimum-score 80 lib"
+end
+
+task default: %w(lint critique doc play)
 task install: %w(bundle default)
