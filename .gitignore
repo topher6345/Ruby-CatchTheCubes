@@ -2,3 +2,4 @@
 media/*.psd
 doc/*
 .yardoc
+tmp/*
