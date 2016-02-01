@@ -7,19 +7,19 @@ class CatchTheCubes
     require_relative "play_screen/cube"
     require_relative "play_screen/score"
     require_relative "play_screen/cubes"
+    require_relative "play_screen/sounds"
 
     def initialize
       @cubes = Cubes.new
       @score = Score.new
-      @catch_sound = Gosu::Sample.new("media/catch.aif")
-      @miss_sound = Gosu::Sample.new("media/miss.aif")
+      @sounds = Sounds.new(width: Bounds::WIDTH)
     end
 
     def update
       @cubes.each(&:update)
 
-      @cubes.each_bottom do
-        @miss_sound.play
+      @cubes.each_bottom do |cube|
+        @sounds.miss(x: cube.x)
       end
 
       @cubes.on_empty do
@@ -37,7 +37,7 @@ class CatchTheCubes
       @cubes.delete_if do |cube|
         if cube.collision?(mouse_x, mouse_y)
           @score.score += 1
-          @catch_sound.play
+          @sounds.catch(x: cube.x)
           true
         end
       end

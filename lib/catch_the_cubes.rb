@@ -6,7 +6,7 @@ require "./colors"
 class CatchTheCubes < Gosu::Window
   # Global Bounds for the screen
   module Bounds
-    HEIGHT = 980
+    HEIGHT = 880
     WIDTH  = (HEIGHT * 1.75).to_i
   end
   require_relative "catch_the_cubes/title_screen"

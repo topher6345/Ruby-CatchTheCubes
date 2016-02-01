@@ -16,7 +16,7 @@ class CatchTheCubes
       def each_bottom
         each_with_index do |cube, index|
           if cube.bottom?
-            yield if block_given?
+            yield(cube) if block_given?
             delete_at(index)
           end
         end

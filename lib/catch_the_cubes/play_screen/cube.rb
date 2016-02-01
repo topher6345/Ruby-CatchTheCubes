@@ -6,6 +6,7 @@ class CatchTheCubes
     #
     class Cube
       COLLISION_RADIUS = 10
+      attr_reader :x
 
       def initialize(start_x:, start_y:)
         @cube = Gosu::Image.new("media/cube.png")
