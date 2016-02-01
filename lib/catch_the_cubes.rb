@@ -50,7 +50,10 @@ class CatchTheCubes < Gosu::Window
   end
 
   def button_up(id)
-    @current_screen.click_reset if id == Gosu::MsLeft
+    case @current_screen
+    when PlayScreen
+      @current_screen.click_reset if id == Gosu::MsLeft
+    end
   end
 
   def start_game

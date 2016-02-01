@@ -5,10 +5,11 @@ class CatchTheCubes
     # The sounds of PlayScreen
     #
     class Sounds
+      include Gosu
       def initialize(width:)
         @width = width.to_f
-        @catch = Gosu::Sample.new("media/catch.aif")
-        @miss = Gosu::Sample.new("media/miss.aif")
+        @catch = Sample.new("media/catch.aif")
+        @miss = Sample.new("media/miss.aif")
       end
 
       def catch(x:)
