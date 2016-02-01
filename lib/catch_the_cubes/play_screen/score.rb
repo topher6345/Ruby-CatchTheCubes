@@ -11,13 +11,14 @@ class CatchTheCubes
         @score = 0
         @count = 0
         @level = 1
+        @color = COLORS.first
       end
 
       def draw
-        @font.draw("Score: #{@score}", 0, 0, 1, 1.7, 1.7, COLORS.first)
-        @font.draw("Cubes: #{@count}", 0, 40, 1, 1.7, 1.7, COLORS.first)
-        @font.draw("Level: #{@level}", 0, 80, 1, 1.7, 1.7, COLORS.first)
-        @font.draw(moving_average, 0, 120, 1, 1.7, 1.7, COLORS.first)
+        @font.draw("Score: #{@score}", 0, 0, 1, 1.7, 1.7, @color)
+        @font.draw("Cubes: #{@count}", 0, 40, 1, 1.7, 1.7, @color)
+        @font.draw("Level: #{@level}", 0, 80, 1, 1.7, 1.7, @color)
+        @font.draw(moving_average, 0, 120, 1, 1.7, 1.7, @color)
       end
 
       private

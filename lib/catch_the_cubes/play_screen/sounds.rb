@@ -13,25 +13,25 @@ class CatchTheCubes
         @drop = Sample.new("media/drop.aif")
       end
 
-      def catch(x:)
-        @catch.play_pan xpos_to_pan(x: x)
+      def catch(x_pos:)
+        @catch.play_pan xpos_to_pan(x_pos: x_pos)
         @catch.play
       end
 
-      def miss(x:)
-        @miss.play_pan xpos_to_pan(x: x)
+      def miss(x_pos:)
+        @miss.play_pan xpos_to_pan(x_pos: x_pos)
         @miss.play
       end
 
-      def drop(x:)
-        @drop.play_pan xpos_to_pan(x: x)
+      def drop(x_pos:)
+        @drop.play_pan xpos_to_pan(x_pos: x_pos)
         @drop.play
       end
 
       private
 
-      def xpos_to_pan(x:)
-        (((x / @width) * 2.0) - 1.0)
+      def xpos_to_pan(x_pos:)
+        (((x_pos / @width) * 2.0) - 1.0)
       end
     end
   end

@@ -23,7 +23,7 @@ class CatchTheCubes
       @cubes.each(&:update)
 
       @cubes.each_bottom do |cube|
-        @sounds.miss(x: cube.x)
+        @sounds.miss(x_pos: cube.x_pos)
       end
 
       @cubes.on_empty do
@@ -42,7 +42,7 @@ class CatchTheCubes
       @cubes.delete_if do |cube|
         if cube.collision?(mouse_x, mouse_y) && @click_up
           @score.score += 1
-          @sounds.catch(x: cube.x)
+          @sounds.catch(x_pos: cube.x_pos)
           @click_up = false
           true
         end
@@ -57,7 +57,7 @@ class CatchTheCubes
         # Keep tally of total cubes
         @score.count += 1
       end
-      @sounds.drop(x: start_x)
+      @sounds.drop(x_pos: start_x)
     end
 
     def click_reset
