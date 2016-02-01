@@ -10,10 +10,7 @@ class CatchTheCubes
 
     def initialize
       @cubes = Cubes.new
-      @score_view = ScoreView.new
-      @score = 0
-      @level = 1
-      @cubes_count = 0
+      @score = ScoreView.new
       @catch_sound = Gosu::Sample.new("media/catch.aif")
       @miss_sound = Gosu::Sample.new("media/miss.aif")
     end
@@ -27,20 +24,19 @@ class CatchTheCubes
 
       @cubes.on_empty do
         add_cubes
-        @level += 1
+        @score.level += 1
       end
-      @score_view.update(score: @score, count: @cubes_count, level: @level)
     end
 
     def draw
-      @score_view.draw
+      @score.draw
       @cubes.each(&:draw)
     end
 
     def click(mouse_x, mouse_y)
       @cubes.delete_if do |cube|
         if cube.collision?(mouse_x, mouse_y)
-          @score += 1
+          @score.score += 1
           @catch_sound.play
           true
         end
@@ -48,12 +44,12 @@ class CatchTheCubes
     end
 
     def add_cubes
-      @level.times do
+      @score.level.times do
         # Add cube to set
         @cubes << Cube.new(start_x: start_x, start_y: start_y)
 
         # Keep tally of total cubes
-        @cubes_count += 1
+        @score.count += 1
       end
     end
 
