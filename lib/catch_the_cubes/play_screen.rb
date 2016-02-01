@@ -53,6 +53,8 @@ class CatchTheCubes
       end
     end
 
+    private
+
     def start_y
       # Start at a random y position
       # Except on the first level
