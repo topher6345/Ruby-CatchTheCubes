@@ -12,10 +12,13 @@ class CatchTheCubes
         @cube = Gosu::Image.new("media/cube.png")
         @x = start_x
         @y = start_y
+        @rot = 0
+        @rotate_interval = rand(1..6) * [-1, 1].sample
       end
 
       def update
         @y += 5
+        @rot = (@rot + @rotate_interval) % 360
       end
 
       def bottom?
@@ -28,7 +31,7 @@ class CatchTheCubes
       end
 
       def draw
-        @cube.draw_rot(@x, @y, 1, 0)
+        @cube.draw_rot(@x, @y, 1, @rot)
       end
     end
   end
