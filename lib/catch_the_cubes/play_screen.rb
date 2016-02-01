@@ -5,12 +5,12 @@ class CatchTheCubes
   #
   class PlayScreen
     require_relative "play_screen/cube"
-    require_relative "play_screen/score_view"
+    require_relative "play_screen/score"
     require_relative "play_screen/cubes"
 
     def initialize
       @cubes = Cubes.new
-      @score = ScoreView.new
+      @score = Score.new
       @catch_sound = Gosu::Sample.new("media/catch.aif")
       @miss_sound = Gosu::Sample.new("media/miss.aif")
     end

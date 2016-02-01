@@ -4,7 +4,7 @@ class CatchTheCubes
     #
     # Score info
     #
-    class ScoreView
+    class Score
       attr_accessor :score, :count, :level
       def initialize
         @font = Gosu::Font.new(30)
