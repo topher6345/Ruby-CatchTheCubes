@@ -51,6 +51,6 @@ class CatchTheCubes < Gosu::Window
 
   def start_game
     @current_screen = @scenes[:play]
-    @scenes[:play].add_cube
+    @scenes[:play].add_cubes
   end
 end
