@@ -57,6 +57,7 @@ class CatchTheCubes
         # Keep tally of total cubes
         @score.count += 1
       end
+      @sounds.drop(x: start_x)
     end
 
     def click_reset
@@ -72,7 +73,7 @@ class CatchTheCubes
       if @level == 1
         0
       else
-        rand(Bounds::HEIGHT / 2.0) * -1
+        rand(Bounds::HEIGHT / 1.5) * -1
       end
     end
 

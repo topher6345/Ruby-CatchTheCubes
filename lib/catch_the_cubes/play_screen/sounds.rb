@@ -10,6 +10,7 @@ class CatchTheCubes
         @width = width.to_f
         @catch = Sample.new("media/catch.aif")
         @miss = Sample.new("media/miss.aif")
+        @drop = Sample.new("media/drop.aif")
       end
 
       def catch(x:)
@@ -20,6 +21,11 @@ class CatchTheCubes
       def miss(x:)
         @miss.play_pan xpos_to_pan(x: x)
         @miss.play
+      end
+
+      def drop(x:)
+        @drop.play_pan xpos_to_pan(x: x)
+        @drop.play
       end
 
       private
